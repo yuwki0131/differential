@@ -1,0 +1,288 @@
+
+==================== FINAL INTERFACE ====================
+2017-07-16 12:32:02.836201 UTC
+
+interface differential-0.1.0.0-4oXEmZGNO6n8VWLt7jyCUO:Lib 8002
+  interface hash: 2c42a2c37ac55bee5b0f13e8b82b81c8
+  ABI hash: f8ccbe70e5601a952ea896bab4e579e5
+  export-list hash: fdaedbc765fa5f20b2ce18e34f5803c2
+  orphan hash: d6f944be83d6253328c986622ccca7fc
+  flag hash: ab396f11155bd696ab63895436e6f1df
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Lib.doDifferentialRepl
+module dependencies:
+package dependencies: array-0.5.1.1@array-0.5.1.1 base-4.9.1.0*
+                      binary-0.8.3.0@binary-0.8.3.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      parsec-3.1.11@parsec-3.1.11-113irVHGgd88sRnywByDNw
+                      text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR
+                      transformers-0.5.2.0@transformers-0.5.2.0
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Lazy
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Show
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
+                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
+                         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Lazy
+import  -/  base-4.9.1.0:Data.Either 20b09ef8d0a5b74fdec011c40c1587f5
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Num 00bfaa7b2f9d6084913c0697a8a49ec8
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-4.9.1.0:System.IO e4a64a8e3dce8616da54f0ee7104f7db
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+import  -/  integer-gmp-1.0.0.1:GHC.Integer.Type 318df275d77dcdb18e0006d8d7870c2a
+import  -/  parsec-3.1.11@parsec-3.1.11-113irVHGgd88sRnywByDNw:Text.Parsec b63ffbcfd32da83683c00215f9c65dae
+import  -/  parsec-3.1.11@parsec-3.1.11-113irVHGgd88sRnywByDNw:Text.Parsec.Combinator 78c61d4944845dac4be543f4a5fad926
+import  -/  parsec-3.1.11@parsec-3.1.11-113irVHGgd88sRnywByDNw:Text.Parsec.Language 7c49cd0564312142a61b26e7d1a72031
+import  -/  parsec-3.1.11@parsec-3.1.11-113irVHGgd88sRnywByDNw:Text.Parsec.Prim cf8fdd65b268b07ee0d4808d85010d49
+import  -/  parsec-3.1.11@parsec-3.1.11-113irVHGgd88sRnywByDNw:Text.Parsec.Token 43a3c35cde41b2eb307e1fa0e52feb99
+64db2cde9fbed8f66d32bdd751290f97
+  $fEqExpression :: GHC.Classes.Eq Lib.Expression
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Lib.Expression Lib.$fEqExpression_$c== Lib.$fEqExpression_$c/= -}
+64db2cde9fbed8f66d32bdd751290f97
+  $fEqExpression_$c/= ::
+    Lib.Expression -> Lib.Expression -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (a :: Lib.Expression) (b :: Lib.Expression) ->
+                 case Lib.$fEqExpression_$c== a b of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+64db2cde9fbed8f66d32bdd751290f97
+  $fEqExpression_$c== ::
+    Lib.Expression -> Lib.Expression -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U> -}
+64db2cde9fbed8f66d32bdd751290f97
+  $fShowExpression :: GHC.Show.Show Lib.Expression
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Lib.Expression
+                  Lib.$fShowExpression_$cshowsPrec
+                  Lib.$fShowExpression_$cshow
+                  Lib.$fShowExpression_$cshowList -}
+64db2cde9fbed8f66d32bdd751290f97
+  $fShowExpression1 :: Lib.Expression -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ (w :: Lib.Expression) (w1 :: GHC.Base.String) ->
+                 Lib.$w$cshowsPrec 0# w w1) -}
+64db2cde9fbed8f66d32bdd751290f97
+  $fShowExpression_$cshow :: Lib.Expression -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x2 :: Lib.Expression) ->
+                 Lib.$fShowExpression_$cshowsPrec
+                   GHC.Show.shows22
+                   x2
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+64db2cde9fbed8f66d32bdd751290f97
+  $fShowExpression_$cshowList :: [Lib.Expression] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Lib.Expression
+                   Lib.$fShowExpression1) -}
+64db2cde9fbed8f66d32bdd751290f97
+  $fShowExpression_$cshowsPrec ::
+    GHC.Types.Int -> Lib.Expression -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: Lib.Expression)
+                   (w2 :: GHC.Base.String) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Lib.$w$cshowsPrec ww1 w1 w2 }) -}
+67f473d540403d9d509eca5f5c560c09
+  $s$fStream[]mtok ::
+    Text.Parsec.Prim.Stream [tok] Data.Functor.Identity.Identity tok
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ tok.
+                  @ [tok]
+                  @ Data.Functor.Identity.Identity
+                  @ tok
+                  (Lib.$s$fStream[]mtok_$s$fStream[]mtok_$cp1Stream @ tok)
+                  (Lib.$s$fStream[]mtok_$s$fStream[]mtok_$cuncons @ tok) -}
+ae2c4105c100b154909afc78dc8fdf37
+  $s$fStream[]mtok_$s$fStream[]mtok_$cp1Stream ::
+    GHC.Base.Monad Data.Functor.Identity.Identity
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                (\ @ tok -> Data.Functor.Identity.$fMonadIdentity) -}
+5c17802e00f37f1112d084decab218e5
+  $s$fStream[]mtok_$s$fStream[]mtok_$cuncons ::
+    [tok]
+    -> Data.Functor.Identity.Identity (GHC.Base.Maybe (tok, [tok]))
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Inline: INLINE (sat-args=1),
+     Unfolding: InlineRule (1, False, False)
+                (\ @ tok (ds :: [tok]) ->
+                 case ds of wild {
+                   []
+                   -> GHC.Base.$
+                        @ 'GHC.Types.PtrRepLifted
+                        @ (GHC.Base.Maybe (tok, [tok]))
+                        @ (Data.Functor.Identity.Identity (GHC.Base.Maybe (tok, [tok])))
+                        (Data.Functor.Identity.$fApplicativeIdentity_$cpure
+                           @ (GHC.Base.Maybe (tok, [tok])))
+                        (GHC.Base.Nothing @ (tok, [tok]))
+                   : t ts
+                   -> GHC.Base.$
+                        @ 'GHC.Types.PtrRepLifted
+                        @ (GHC.Base.Maybe (tok, [tok]))
+                        @ (Data.Functor.Identity.Identity (GHC.Base.Maybe (tok, [tok])))
+                        (Data.Functor.Identity.$fApplicativeIdentity_$cpure
+                           @ (GHC.Base.Maybe (tok, [tok])))
+                        (GHC.Base.Just @ (tok, [tok]) (t, ts)) }) -}
+494086170b08488afee7c6662e3ff9e5
+  $tc'Constant :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   7309271293437013857##
+                   3572569444712232542##
+                   Lib.$trModule
+                   Lib.$tc'Constant1) -}
+c2ac7403b578ea790687a93b63eb54fb
+  $tc'Constant1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Constant"#) -}
+0fd06c6037afe4bb15daba1e9b5739e9
+  $tc'Mult :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12513286978980039712##
+                   12380030446798030644##
+                   Lib.$trModule
+                   Lib.$tc'Mult1) -}
+01cc711e0001fe7c8fa73aa48e3af9e7
+  $tc'Mult1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Mult"#) -}
+ee5a4a099b4eeac135a441a53639299e
+  $tc'Plus :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   4895160282253618266##
+                   17829357754576337644##
+                   Lib.$trModule
+                   Lib.$tc'Plus1) -}
+319de2256ce53a04f3af8b31f585a970
+  $tc'Plus1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Plus"#) -}
+6621f6b854fa54417583d44d6bfb28f0
+  $tc'Variable :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   10067064528009247888##
+                   17057277798138357003##
+                   Lib.$trModule
+                   Lib.$tc'Variable1) -}
+3d4383e81be2aa47daed09d07f05bbb5
+  $tc'Variable1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Variable"#) -}
+e9d1754e530339f44281650a72ef8bc9
+  $tcExpression :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   11272460250034722653##
+                   3876125536295983086##
+                   Lib.$trModule
+                   Lib.$tcExpression1) -}
+e656e469a6a8bc74adb080c4f0325453
+  $tcExpression1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Expression"#) -}
+fefff6fb09745d4661bad8d4ec88117d
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Lib.$trModule2 Lib.$trModule1) -}
+d730394514fb86401480e9d22b6d9c79
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Lib"#) -}
+1d92888609097ac5bbdaad0d50fbc627
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "differential-0.1.0.0-4oXEmZGNO6n8VWLt7jyCUO"#) -}
+64db2cde9fbed8f66d32bdd751290f97
+  $w$cshowsPrec ::
+    GHC.Prim.Int#
+    -> Lib.Expression -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 3, Strictness: <S,U><S,1*U><L,U>, Inline: [0] -}
+64db2cde9fbed8f66d32bdd751290f97
+  data Expression
+    = Constant GHC.Integer.Type.Integer
+    | Variable GHC.Base.String GHC.Integer.Type.Integer
+    | Mult Lib.Expression Lib.Expression
+    | Plus Lib.Expression Lib.Expression
+9fcfd8b82c52cf80b91de2118848d10f
+  doDifferentialRepl :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Lib.doDifferentialRepl1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+01f566006a16c32204cdaddbc8664198
+  doDifferentialRepl1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U> -}
+instance [safe] GHC.Classes.Eq [Lib.Expression]
+  = Lib.$fEqExpression
+instance [safe] GHC.Show.Show [Lib.Expression]
+  = Lib.$fShowExpression
+"SPEC/Lib $fStream[]mtok @ Identity _" [ALWAYS] forall @ tok
+                                                       ($dMonad :: GHC.Base.Monad
+                                                                     Data.Functor.Identity.Identity)
+  Text.Parsec.Prim.$fStream[]mtok @ Data.Functor.Identity.Identity
+                                  @ tok
+                                  $dMonad
+  = Lib.$s$fStream[]mtok @ tok
+"SPEC/Lib $fStream[]mtok_$cp1Stream @ Identity _" [ALWAYS] forall @ tok
+                                                                  ($dMonad :: GHC.Base.Monad
+                                                                                Data.Functor.Identity.Identity)
+  Text.Parsec.Prim.$fStream[]mtok_$cp1Stream @ Data.Functor.Identity.Identity
+                                             @ tok
+                                             $dMonad
+  = Lib.$s$fStream[]mtok_$s$fStream[]mtok_$cp1Stream @ tok
+"SPEC/Lib $fStream[]mtok_$cuncons @ Identity _" [ALWAYS] forall @ tok
+                                                                ($dMonad :: GHC.Base.Monad
+                                                                              Data.Functor.Identity.Identity)
+  Text.Parsec.Prim.$fStream[]mtok_$cuncons @ Data.Functor.Identity.Identity
+                                           @ tok
+                                           $dMonad
+  = Lib.$s$fStream[]mtok_$s$fStream[]mtok_$cuncons @ tok
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

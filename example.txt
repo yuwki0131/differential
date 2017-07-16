@@ -1,0 +1,480 @@
+~/hask/introh/haskell-nyumon-handson/samples ★  cd ../..
+~/hask/introh ★  ls
+example  example-app  handson.txt  haskell-nyumon-handson  wai-example
+~/hask/introh ★  stack new differential
+Downloading template "new-template" to create project "differential" in differential/ ...
+
+The following parameters were needed by the template but not provided: author-email, author-name, category, copyright, github-username
+You can provide them in /home/yuwki0131/.stack/config.yaml, like this:
+templates:
+  params:
+    author-email: value
+    author-name: value
+    category: value
+    copyright: value
+    github-username: value
+Or you can pass each one as parameters like this:
+stack new differential new-template -p "author-email:value" -p "author-name:value" -p "category:value" -p "copyright:value" -p "github-username:value"
+
+Looking for .cabal or package.yaml files to use to init the project.
+Using cabal packages:
+- differential/differential.cabal
+
+Selecting the best among 10 snapshots...
+
+* Matches lts-8.22
+
+Selected resolver: lts-8.22
+Initialising configuration using resolver: lts-8.22
+Total number of user packages considered: 1
+Writing configuration to file: differential/stack.yaml
+All done.
+~/hask/introh ★  ls
+differential  example  example-app  handson.txt  haskell-nyumon-handson  wai-example
+~/hask/introh ★  cd differential/
+~/hask/introh/differential ★  ls
+LICENSE  README.md  Setup.hs  app  differential.cabal  src  stack.yaml  test
+~/hask/introh/differential ★  stack ghci
+differential-0.1.0.0: configure (lib + exe)
+Configuring differential-0.1.0.0...
+differential-0.1.0.0: initial-build-steps (lib + exe)
+The following GHC options are incompatible with GHCi and have not been passed to it: -threaded
+Configuring GHCi with the following packages: differential
+Using main module: 1. Package `differential' component exe:differential-exe with main-is file: /home/yuwki0131/Dropbox/langs/functional/hask/introh/differential/app/Main.hs
+GHCi, version 8.0.2: http://www.haskell.org/ghc/  :? for help
+[1 of 1] Compiling Lib              ( /home/yuwki0131/Dropbox/langs/functional/hask/introh/differential/src/Lib.hs, interpreted )
+
+/home/yuwki0131/Dropbox/langs/functional/hask/introh/differential/src/Lib.hs:5:19: error:
+    Cannot parse data constructor in a data/newtype declaration: Constant Integer
+Failed, modules loaded: none.
+[1 of 2] Compiling Lib              ( /home/yuwki0131/Dropbox/langs/functional/hask/introh/differential/src/Lib.hs, interpreted )
+
+/home/yuwki0131/Dropbox/langs/functional/hask/introh/differential/src/Lib.hs:5:19: error:
+    Cannot parse data constructor in a data/newtype declaration: Constant Integer
+Failed, modules loaded: none.
+
+<no location info>: error:
+    Could not find module ‘Lib’
+    It is not a module in the current program, or in any known package.
+Loaded GHCi configuration from /tmp/ghci31601/ghci-script
+Prelude> (Constant 1)
+
+<interactive>:1:2: error:
+    Data constructor not in scope: Constant :: Integer -> t
+Prelude> :load "Lib.hs"
+
+<no location info>: error: can't find file: Lib.hs
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:5:19: error:
+    Cannot parse data constructor in a data/newtype declaration: Constant Integer
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:5:19: error:
+    Cannot parse data constructor in a data/newtype declaration: Const Integer
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+Ok, modules loaded: Lib.
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:12:35: error:
+    • Couldn't match expected type ‘Expression’
+                  with actual type ‘Expression -> Expression’
+    • Probable cause: ‘Plus’ is applied to too few arguments
+      In the second argument of ‘Plus’, namely
+        ‘(Plus ((Variable "x" 1) (Variable "a" 1)))’
+      In the expression:
+        (Plus (Variable "x" 2) (Plus ((Variable "x" 1) (Variable "a" 1))))
+      In an equation for ‘example’:
+          example
+            = (Plus
+                 (Variable "x" 2) (Plus ((Variable "x" 1) (Variable "a" 1))))
+
+src/Lib.hs:12:41: error:
+    • Couldn't match expected type ‘Expression -> Expression’
+                  with actual type ‘Expression’
+    • The function ‘Variable’ is applied to three arguments,
+      but its type ‘String -> Integer -> Expression’ has only two
+      In the first argument of ‘Plus’, namely
+        ‘((Variable "x" 1) (Variable "a" 1))’
+      In the second argument of ‘Plus’, namely
+        ‘(Plus ((Variable "x" 1) (Variable "a" 1)))’
+
+src/Lib.hs:18:48: error:
+    • Couldn't match expected type ‘Expression’
+                  with actual type ‘String -> Expression’
+    • Probable cause: ‘diff’ is applied to too few arguments
+      In the first argument of ‘Mult’, namely ‘(diff left)’
+      In the first argument of ‘Plus’, namely ‘(Mult (diff left) right)’
+      In the expression:
+        (Plus (Mult (diff left) right) (Mult left (diff right)))
+
+src/Lib.hs:18:78: error:
+    • Couldn't match expected type ‘Expression’
+                  with actual type ‘String -> Expression’
+    • Probable cause: ‘diff’ is applied to too few arguments
+      In the second argument of ‘Mult’, namely ‘(diff right)’
+      In the second argument of ‘Plus’, namely ‘(Mult left (diff right))’
+      In the expression:
+        (Plus (Mult (diff left) right) (Mult left (diff right)))
+
+src/Lib.hs:19:42: error:
+    • Couldn't match expected type ‘Expression’
+                  with actual type ‘String -> Expression’
+    • Probable cause: ‘diff’ is applied to too few arguments
+      In the first argument of ‘Plus’, namely ‘(diff left)’
+      In the expression: (Plus (diff left) (diff right))
+      In an equation for ‘diff’:
+          diff (Plus left right) variable = (Plus (diff left) (diff right))
+
+src/Lib.hs:19:54: error:
+    • Couldn't match expected type ‘Expression’
+                  with actual type ‘String -> Expression’
+    • Probable cause: ‘diff’ is applied to too few arguments
+      In the second argument of ‘Plus’, namely ‘(diff right)’
+      In the expression: (Plus (diff left) (diff right))
+      In an equation for ‘diff’:
+          diff (Plus left right) variable = (Plus (diff left) (diff right))
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:12:35: error:
+    • Couldn't match expected type ‘Expression’
+                  with actual type ‘Expression -> Expression’
+    • Probable cause: ‘Plus’ is applied to too few arguments
+      In the second argument of ‘Plus’, namely
+        ‘(Plus ((Variable "x" 1) (Variable "a" 1)))’
+      In the expression:
+        (Plus (Variable "x" 2) (Plus ((Variable "x" 1) (Variable "a" 1))))
+      In an equation for ‘example’:
+          example
+            = (Plus
+                 (Variable "x" 2) (Plus ((Variable "x" 1) (Variable "a" 1))))
+
+src/Lib.hs:12:41: error:
+    • Couldn't match expected type ‘Expression -> Expression’
+                  with actual type ‘Expression’
+    • The function ‘Variable’ is applied to three arguments,
+      but its type ‘String -> Integer -> Expression’ has only two
+      In the first argument of ‘Plus’, namely
+        ‘((Variable "x" 1) (Variable "a" 1))’
+      In the second argument of ‘Plus’, namely
+        ‘(Plus ((Variable "x" 1) (Variable "a" 1)))’
+Failed, modules loaded: none.
+Prelude>
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+Ok, modules loaded: Lib.
+*Lib> diff example
+
+<interactive>:10:1: error:
+    • No instance for (Show (String -> Expression))
+        arising from a use of ‘print’
+        (maybe you haven't applied a function to enough arguments?)
+    • In a stmt of an interactive GHCi command: print it
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:9:55: error: parse error on input ‘show’
+Failed, modules loaded: none.
+Prelude> diff example (Variable "x")
+
+<interactive>:12:1: error:
+    Variable not in scope: diff :: t0 -> t1 -> t
+
+<interactive>:12:6: error: Variable not in scope: example
+
+<interactive>:12:15: error:
+    Data constructor not in scope: Variable :: [Char] -> t1
+Prelude> diff example "x"
+
+<interactive>:13:1: error:
+    Variable not in scope: diff :: t0 -> [Char] -> t
+
+<interactive>:13:6: error: Variable not in scope: example
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+Ok, modules loaded: Lib.
+*Lib> diff example "x"
+Plus (Variable "x" 1) (Plus (Variable "x" 0) (Constant 0))
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+Ok, modules loaded: Lib.
+*Lib> diff example "x"
+Plus (Variable "x" 1) (Plus (Plus (Mult (Variable "x" 0) (Constant 2)) (Mult (Variable "x" 1) (Constant 0))) (Constant 0))
+*Lib> diff example "x"
+Plus (Variable "x" 1) (Plus (Plus (Mult (Variable "x" 0) (Constant 2)) (Mult (Variable "x" 1) (Constant 0))) (Constant 0))
+*Lib> simplify $ diff example "x"
+
+<interactive>:19:1: error:
+    Variable not in scope: simplify :: Expression -> t
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:25:17: error:
+    • Conflicting definitions for ‘expression’
+      Bound at: src/Lib.hs:25:17-26
+                src/Lib.hs:25:28-37
+    • In an equation for ‘simplify'’
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:25:17: error:
+    • Conflicting definitions for ‘expression’
+      Bound at: src/Lib.hs:25:17-26
+                src/Lib.hs:25:28-37
+    • In an equation for ‘simplify'’
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+Ok, modules loaded: Lib.
+*Lib> simplify' $ diff example
+
+<interactive>:23:13: error:
+    • Couldn't match expected type ‘Expression’
+                  with actual type ‘String -> Expression’
+    • Probable cause: ‘diff’ is applied to too few arguments
+      In the second argument of ‘($)’, namely ‘diff example’
+      In the expression: simplify' $ diff example
+      In an equation for ‘it’: it = simplify' $ diff example
+*Lib> diff example
+
+<interactive>:24:1: error:
+    • No instance for (Show (String -> Expression))
+        arising from a use of ‘print’
+        (maybe you haven't applied a function to enough arguments?)
+    • In a stmt of an interactive GHCi command: print it
+*Lib> simplify' $ diff example "x"
+Plus (Variable "x" 1) (Plus (Plus (Mult (Variable "x" 0) (Constant 2)) (Constant 0)) (Constant 0))
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:28:28: error: parse error on input ‘)’
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:31:1: warning: [-Woverlapping-patterns]
+    Pattern match is redundant
+    In an equation for ‘simplify'’: simplify' other = ...
+Ok, modules loaded: Lib.
+*Lib> simplify' $ diff example "x"
+Plus (Variable "x" 1) (Plus (Plus (Mult (Constant 1) (Constant 2)) (Constant 0)) (Constant 0))
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:28:47: error:
+    • Couldn't match expected type ‘Expression’
+                  with actual type ‘Expression -> Expression’
+    • Probable cause: ‘Mult’ is applied to too few arguments
+      In the expression: (Mult (n * m))
+      In an equation for ‘simplify'’:
+          simplify' (Mult (Constant n) (Constant m)) = (Mult (n * m))
+
+src/Lib.hs:28:53: error:
+    • Couldn't match expected type ‘Expression’
+                  with actual type ‘Integer’
+    • In the first argument of ‘Mult’, namely ‘(n * m)’
+      In the expression: (Mult (n * m))
+      In an equation for ‘simplify'’:
+          simplify' (Mult (Constant n) (Constant m)) = (Mult (n * m))
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:28:47: error:
+    • Data constructor not in scope: Const :: Integer -> Expression
+    • Perhaps you meant variable ‘const’ (imported from Prelude)
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:32:1: warning: [-Woverlapping-patterns]
+    Pattern match is redundant
+    In an equation for ‘simplify'’: simplify' other = ...
+Ok, modules loaded: Lib.
+*Lib> simplify' $ diff example "x"
+Plus (Variable "x" 1) (Plus (Plus (Mult (Constant 1) (Constant 2)) (Constant 0)) (Constant 0))
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:36:33: error:
+    • No instance for (Eq Expression) arising from a use of ‘==’
+    • In the expression: (before == after)
+      In the expression:
+        if (before == after) then after else fix after after
+      In an equation for ‘fix’:
+          fix expression before
+            = if (before == after) then after else fix after after
+            where
+                after = (simplify' expression)
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:31:1: warning: [-Woverlapping-patterns]
+    Pattern match is redundant
+    In an equation for ‘simplify'’: simplify' other = ...
+Ok, modules loaded: Lib.
+*Lib> simplify $ diff example "x"
+Plus (Variable "x" 1) (Constant 2)
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:12:1: error:
+    Multiple declarations of ‘example’
+    Declared at: src/Lib.hs:11:1
+                 src/Lib.hs:12:1
+
+src/Lib.hs:13:1: error:
+    Multiple declarations of ‘example’
+    Declared at: src/Lib.hs:11:1
+                 src/Lib.hs:13:1
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:35:1: warning: [-Woverlapping-patterns]
+    Pattern match is redundant
+    In an equation for ‘simplify'’: simplify' other = ...
+Ok, modules loaded: Lib.
+*Lib> simplify $ diff example "x"
+
+<interactive>:38:17: error:
+    • Variable not in scope: example :: Expression
+    • Perhaps you meant one of these:
+        ‘example1’ (line 11), ‘example2’ (line 13)
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:35:1: warning: [-Woverlapping-patterns]
+    Pattern match is redundant
+    In an equation for ‘simplify'’: simplify' other = ...
+Ok, modules loaded: Lib.
+*Lib> simplify $ diff example "x"
+
+<interactive>:40:17: error:
+    • Variable not in scope: example :: Expression
+    • Perhaps you meant one of these:
+        ‘example1’ (line 11), ‘example2’ (line 13)
+*Lib> simplify $ diff example2 "x"
+Plus (Plus (Mult (Variable "x" 3) (Constant 10)) (Constant 0)) (Constant 2)
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:37:1: warning: [-Woverlapping-patterns]
+    Pattern match is redundant
+    In an equation for ‘simplify'’: simplify' other = ...
+Ok, modules loaded: Lib.
+*Lib> simplify $ diff example2 "x"
+Plus (Mult (Variable "x" 3) (Constant 10)) (Constant 2)
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:44:1: error:
+    Multiple declarations of ‘Expression’
+    Declared at: src/Lib.hs:5:1
+                 src/Lib.hs:44:1
+
+src/Lib.hs:44:19: error:
+    Multiple declarations of ‘Constant’
+    Declared at: src/Lib.hs:5:19
+                 src/Lib.hs:44:19
+
+src/Lib.hs:45:19: error:
+    Multiple declarations of ‘Variable’
+    Declared at: src/Lib.hs:6:19
+                 src/Lib.hs:45:19
+
+src/Lib.hs:46:19: error:
+    Multiple declarations of ‘Mult’
+    Declared at: src/Lib.hs:7:19
+                 src/Lib.hs:46:19
+
+src/Lib.hs:47:19: error:
+    Multiple declarations of ‘Plus’
+    Declared at: src/Lib.hs:8:19
+                 src/Lib.hs:47:19
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:46:63: error:
+    • Couldn't match expected type ‘[Char]’
+                  with actual type ‘Expression’
+    • In the second argument of ‘(++)’, namely ‘exp’
+      In the second argument of ‘(++)’, namely ‘"*" ++ exp’
+      In the expression: (visualize c) ++ "*" ++ exp
+
+src/Lib.hs:47:63: error:
+    • Couldn't match expected type ‘[Char]’
+                  with actual type ‘Expression’
+    • In the second argument of ‘(++)’, namely ‘exp’
+      In the second argument of ‘(++)’, namely ‘"*" ++ exp’
+      In the expression: (visualize c) ++ "*" ++ exp
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:35:1: warning: [-Woverlapping-patterns]
+    Pattern match is redundant
+    In an equation for ‘simplify'’: simplify' other = ...
+Ok, modules loaded: Lib.
+*Lib> simplify $ diff example2 "x"
+Plus (Mult (Variable "x" 3) (Constant 10)) (Constant 2)
+*Lib>
+"(10*x^3 + 2)"
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:51:54: error: parse error on input ‘)’
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:51:54: error: parse error on input ‘)’
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:2:7: error: Not in scope: ‘someFunc’
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:64:43: error:
+    Variable not in scope: line2exp :: String -> Expression
+Failed, modules loaded: none.
+Prelude> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:36:1: warning: [-Woverlapping-patterns]
+    Pattern match is redundant
+    In an equation for ‘simplify'’: simplify' other = ...
+Ok, modules loaded: Lib.
+*Lib> visualize $ simplify $ diff example2 "x"
+"(10*4*x^3 + 2)"
+*Lib> simplify $ diff example2 "x"
+Plus (Mult (Mult (Constant 4) (Variable "x" 3)) (Constant 10)) (Constant 2)
+*Lib> :load "src/Lib.hs"
+[1 of 1] Compiling Lib              ( src/Lib.hs, interpreted )
+
+src/Lib.hs:37:1: warning: [-Woverlapping-patterns]
+    Pattern match is redundant
+    In an equation for ‘simplify'’: simplify' other = ...
+Ok, modules loaded: Lib.
+*Lib> simplify $ diff example2 "x"
+Plus (Mult (Constant 40) (Variable "x" 3)) (Constant 2)
+*Lib> visualize $ simplify $ diff example2 "x"
+"(40*x^3 + 2)"
+*Lib> visualize $ simplify $ diff example1 "x"
+"(2*x + 2)"
+*Lib>
